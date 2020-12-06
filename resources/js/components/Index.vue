@@ -1,13 +1,34 @@
 <template>
-  <div>
-      <router-link to="/">Home</router-link>
-      <router-link to="second">Second</router-link>
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+    <router-link class="navbar-brand" v-bind:to="{ name: 'home' }">
+        <strong>Home</strong>
+    </router-link>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <router-link class="nav-link" v-bind:to="{ name: 'second' }">Second</router-link>
+        </li>
+      </ul> -->
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+        <router-link class="nav-link" v-bind:to="{ name: 'second' }">Second</router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5 mt-4">
     <router-view></router-view>
   </div>
+</header>
 </template>
 
 <script>
+import ExampleComponent from './ExampleComponent.vue'
 export default {
+  components: { ExampleComponent },
 
 }
 </script>

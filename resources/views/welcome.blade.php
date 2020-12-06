@@ -17,12 +17,29 @@
     <link rel="stylesheet" href="{{ secure_asset('css/mdb.admin.min.css') }}">
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/style.css">       
+    <style>
+        body {
+            padding-top: 70px; 
+        }
+    </style>
     </head>
     <body>
        <div id="app">
            <index></index>
        </div>
-
+    <!-- VueJS -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- MDB Admin -->
+    <script type="text/javascript" src="js/mdb.admin.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript"></script>
     </body>
 </html>
