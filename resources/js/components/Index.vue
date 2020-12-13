@@ -7,11 +7,6 @@
         <strong>Home</strong>
     </router-link>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <router-link class="nav-link" v-bind:to="{ name: 'second' }">Second</router-link>
-        </li>
-      </ul> -->
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
         <router-link class="nav-link" v-bind:to="{ name: 'second' }">Second</router-link>

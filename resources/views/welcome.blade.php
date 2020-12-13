@@ -25,7 +25,7 @@
     </head>
     <body>
        <div id="app">
-           <index></index>
+           <index class="container"></index>
        </div>
     <!-- VueJS -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
