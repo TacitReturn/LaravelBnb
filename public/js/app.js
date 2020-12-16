@@ -2088,6 +2088,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2104,6 +2107,14 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       columns: 3
     };
+  },
+  methods: {
+    bookablesInRow: function bookablesInRow(row) {
+      return this.bookables.slice((row - 1) * this.columns, row * this.columns);
+    },
+    placeHoldersInRow: function placeHoldersInRow(row) {
+      return this.columns - this.bookablesInRow(row).length;
+    }
   },
   created: function created() {
     var _this = this;
@@ -6591,7 +6602,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndisplay: none;\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndisplay: none;\n", ""]);
 
 // exports
 
@@ -38623,44 +38634,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.loading
-        ? _c("div", [_vm._v("\n        Data is loading...\n    ")])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.rows, function(row) {
-        return _c(
+  return _c("div", [
+    _vm.loading
+      ? _c("div", [_vm._v("\n        Data is loading...\n    ")])
+      : _c(
           "div",
-          { key: "row" + row, staticClass: "row" },
-          _vm._l(
-            _vm.bookables.slice((row - 1) * _vm.columns, row * _vm.columns),
-            function(bookable, column) {
-              return _c(
-                "div",
-                { key: "row" + row + column, staticClass: "col" },
-                [
-                  _c("BookableListItem", {
-                    attrs: {
-                      price: bookable.price,
-                      title: bookable.title,
-                      content: bookable.content
-                    }
+          _vm._l(_vm.rows, function(row) {
+            return _c(
+              "div",
+              { key: "row" + row, staticClass: "row mb-4" },
+              [
+                _vm._l(_vm.bookablesInRow(row), function(bookable, column) {
+                  return _c(
+                    "div",
+                    { key: "row" + row + column, staticClass: "col" },
+                    [
+                      _c("BookableListItem", {
+                        attrs: {
+                          price: bookable.price,
+                          title: bookable.title,
+                          content: bookable.content
+                        }
+                      })
+                    ],
+                    1
+                  )
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.placeHoldersInRow(row), function(p) {
+                  return _c("div", {
+                    key: "placeholder" + row + p,
+                    staticClass: "col"
                   })
-                ],
-                1
-              )
-            }
-          ),
+                })
+              ],
+              2
+            )
+          }),
           0
         )
-      }),
-      _vm._v(" "),
-      _c("div")
-    ],
-    2
-  )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

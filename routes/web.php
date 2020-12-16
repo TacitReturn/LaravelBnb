@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use Illuminate\Http\Request;
+// Use Illuminate\Support\Facades\DB;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any?}', function () {
     return view('welcome');
 })->where('any', '^(?!api\/)[\/\w\.\,-]*');
+
+
