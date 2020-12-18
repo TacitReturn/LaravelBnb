@@ -5,17 +5,17 @@
       </div>
       <div v-else>
         <div class="row mb-4" v-for="row in rows" :key="'row' + row">
-          <div class="col" v-for="(bookable, column) in bookablesInRow(row)" 
+          <div class="col" v-for="(bookable, column) in bookablesInRow(row)"
           :key="'row' + row + column"
           >
             <BookableListItem
-            v-bind:price="bookable.price" 
+            v-bind:price="bookable.price"
             v-bind:title="bookable.title"
             v-bind:content="bookable.content"
             >
             </BookableListItem>
           </div>
-          <div class="col" 
+          <div class="col"
           v-for="p in placeHoldersInRow(row)"
           :key="'placeholder' + row + p"></div>
       </div>
@@ -30,13 +30,13 @@ export default {
     {
         BookableListItem
     },
-    
+
     computed:
     {
-        rows() 
+        rows()
         {
             return this.bookables === null
-            ? 0 
+            ? 0
             : Math.ceil(this.bookables.length / this.columns);
         }
     },
@@ -65,49 +65,16 @@ export default {
     created()
     {
         this.loading = true;
-        setTimeout(() => {
-        console.log(this.bookable1);
-        console.log(this.bookable2);
 
-            this.bookables =  [
-            {
-                title: "Cheap Villa!!!",
-                content: "A very cheap villa",
-                price: 100
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 200
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 300
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 400
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 500
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 600
-            },
-            {
-                title: "Cheap Villa Two",
-                content: "Another cheap villa!",
-                price: 700
-            },
-            ]
-            this.loading = false;
-        }, 2000)
+        const p = new Promise((resolve, reject) => {
+            console.log(resolve);
+            console.log(reject);
+            setTimeout(() => resolve("Hello"), 3000);
+        }).then(result => console.log(`Success ${result}`))
+        .then(result => console.log("Yes!!!!"))
+        .catch(result => console.log(`Error ${result}`));
+
+        console.log(p);
     },
 
     mounted()

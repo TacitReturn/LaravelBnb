@@ -23,5 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('bookables', function (Request $request) {
-    return DB::table('bookables')->get();
+    return Bookable::all();
+});
+
+Route::get('bookables/{id}', function(Request $request, $id) {
+    return Bookable::findOrFail($id);
 });

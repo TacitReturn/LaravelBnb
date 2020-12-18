@@ -1,6 +1,5 @@
 import VueRouter from "vue-router";
 
-import  ExampleComponent  from "./components/ExampleComponent.vue";
 import  ExampleTwo  from "./components/ExampleTwo.vue";
 import Bookables from "./components/bookables/Bookables.vue";
 
