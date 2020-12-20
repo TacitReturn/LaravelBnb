@@ -1,5 +1,5 @@
 <template>
-<div class="card card-cascade wider">
+<div class="card card-cascade wider w-100">
 
   <!-- Card image -->
   <div class="view view-cascade overlay">
@@ -13,13 +13,15 @@
   <div class="card-body card-body-cascade text-center">
 
     <!-- Title -->
-    <h4 class="card-title"><strong>Alison Belmont</strong></h4>
+    <h4 class="card-title"><strong>{{ title }}</strong></h4>
     <!-- Subtitle -->
-    <h5 class="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
+    <h5 class="green-text pb-2"><strong>${{ price }}.00 USD</strong></h5>
     <!-- Text -->
-    <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-      laudantium, totam rem aperiam. </p>
+    <p class="card-text">{{ description }}</p>
 
+    <router-link class="btn btn-success" :to="{ name: 'bookable', params: { id } }">
+        See More
+    </router-link>
     <!-- Linkedin -->
     <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
     <!-- Twitter -->
@@ -35,10 +37,11 @@
 
 <script>
 export default {
-    props: { 
-        "price": Number, 
-        'title': String, 
-        'content': String
+    props: {
+        "price": Number,
+        'title': String,
+        'description': String,
+        'id': Number
         }
 }
 </script>

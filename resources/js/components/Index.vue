@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-        <router-link class="nav-link" v-bind:to="{ name: 'second' }">Second</router-link>
+        <router-link class="nav-link" v-bind:to="{ name: 'bookable' }">Bookable</router-link>
         </li>
       </ul>
     </div>

@@ -8,11 +8,7 @@
           <div class="col" v-for="(bookable, column) in bookablesInRow(row)"
           :key="'row' + row + column"
           >
-            <BookableListItem
-            v-bind:price="bookable.price"
-            v-bind:title="bookable.title"
-            v-bind:content="bookable.content"
-            >
+            <BookableListItem v-bind="bookable">
             </BookableListItem>
           </div>
           <div class="col"
@@ -66,25 +62,21 @@ export default {
     {
         this.loading = true;
 
-        const p = new Promise((resolve, reject) => {
-            console.log(resolve);
-            console.log(reject);
-            setTimeout(() => resolve("Hello"), 3000);
-        }).then(result => console.log(`Success ${result}`))
-        .then(result => console.log("Yes!!!!"))
-        .catch(result => console.log(`Error ${result}`));
+        const request = axios.get("/api/bookables").then(response => {
+            this.bookables = response.data.data;
+            this.loading = false;
+            });
 
-        console.log(p);
+        console.log(request);
     },
 
     mounted()
     {
-        console.log('mounted');
+        // console.log('mounted');
     },
 
 }
 </script>
 
 <style scoped>
-    display: none;
 </style>

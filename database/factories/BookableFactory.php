@@ -21,7 +21,8 @@ $suffix = [
 $factory->define(Bookable::class, function (Faker $faker) use ($suffix) {
     return [
         'title' => $faker->title . ' ' . Arr::random($suffix),
-        'description' => $faker->text()
+        'description' => $faker->text(),
+        'price' => rand(100, 1000)
     ];
 });
 
