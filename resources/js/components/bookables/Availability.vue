@@ -1,5 +1,5 @@
 <template>
-<div style="padding: 1.25rem">
+<div>
     <h5 class="text-center">
         <strong>
             Check Availability
@@ -15,7 +15,6 @@
   <div class="form-outline mb-4 form-group">
     <label class="form-label" for="form-date">From Date:</label>
     <input
-    required
     class="form-control"
     placeholder="Start Date"
     v-model="from"
@@ -32,7 +31,6 @@
   <div class="form-outline mb-4 form-group">
     <label class="form-label" for="to-date">To Date:</label>
     <input
-    required
     class="form-control"
     placeholder="End Date"
     v-model="to"

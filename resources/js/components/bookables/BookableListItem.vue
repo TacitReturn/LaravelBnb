@@ -38,8 +38,8 @@
 <script>
 export default {
     props: {
-        "price": Number,
         'title': String,
+        "price": Number,
         'description': String,
         'id': Number
         }

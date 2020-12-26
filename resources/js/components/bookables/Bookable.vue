@@ -6,7 +6,12 @@
       <div v-else class="row">
           <div class="card col-md-8 pb-4">
               <div class="card-header">
-                  <h5 class="text-center">{{ bookable.title }}</h5>
+                  <h5 class="text-center">
+                      {{ bookable.title }}:
+                      <span class="text-success">
+                          ${{ bookable.price }}.00 USD
+                      </span>
+                  </h5>
               </div>
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                   <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid"/>
