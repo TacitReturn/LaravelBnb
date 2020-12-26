@@ -25,3 +25,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::apiResource('bookables', 'api\BookableController');
+Route::get('bookables/{bookable}/availability', 'api\BookableAvailabilityController')->name('bookables.availability.show');

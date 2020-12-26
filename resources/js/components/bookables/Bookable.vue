@@ -21,20 +21,25 @@
                 </p>
                 <a href="#!" class="btn btn-success btn-block">Button</a>
             </div>
+            <review-list></review-list>
           </div>
+
           <div class="ml-5">
               <availability></availability>
           </div>
       </div>
+
 </div>
 </template>
 
 <script>
 import Availability from './Availability';
+import ReviewList from './ReviewList';
 
 export default {
     components: {
-        Availability
+        Availability,
+        ReviewList
     },
 
     data()
