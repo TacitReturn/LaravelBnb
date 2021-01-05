@@ -18,11 +18,13 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 
 Route::apiResource('bookables', 'api\BookableController');
 Route::get('bookables/{bookable}/availability', 'api\BookableAvailabilityController')->name('bookables.availability.show');
+
+Route::get('bookables/{bookable}/reviews', 'api\BookableReviewController')->name('bookable.reviews.show');

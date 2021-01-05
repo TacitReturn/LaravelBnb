@@ -1,32 +1,53 @@
 <template>
-  <div class="pt-4">
-      <div class="border-bottom d-none d-md-block" v-for="number in 3" :key="number">
-          <h5>Rewviews</h5>
+<div>
+<div v-if="loading">
+    Loading...
+</div>
+  <div class="pt-4" v-else>
+      <h5>Reviews</h5>
+      <div v-for="(review, index) in reviews" :key="index" class="border-bottom d-none d-md-block">
           <div class="row">
               <div class="col-md-6">
                   <p class="font-weight-light">Glenn Rudge</p>
               </div>
               <div class="col-md-6 d-flex justify-content-end">
-                  Rating
+                  {{ review.rating }}
               </div>
           </div>
           <div class="row">
               <div class="col-md-12">
-                  Added 5 minutes ago.
+                  {{ review.created_at }}
               </div>
           </div>
           <div class="row">
               <div class="col-md-12 font-italic">
-                  Conten t of the review
+                  {{ review.content }}
               </div>
           </div>
       </div>
   </div>
+</div>
 </template>
 
 <script>
 export default {
+    props: {
+        bookableId: String
+    },
 
+    data() {
+        return {
+            loading: false,
+            reviws: null
+        }
+    },
+
+    created() {
+        this.loading = true
+        axios.get(`/api/bookables/${this.bookableId}/reviews`)
+        .then(response =>(this.reviews = response.data.data))
+        .then(() => (this.loading = false));
+    }
 }
 </script>
 

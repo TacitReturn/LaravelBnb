@@ -20,17 +20,16 @@
                   </a>
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{ bookable.price }}</h5>
                 <p class="card-text">
                     {{ bookable.description }}
                 </p>
                 <a href="#!" class="btn btn-success btn-block">Button</a>
             </div>
-            <review-list></review-list>
+            <review-list :bookable-id="this.$route.params.id"></review-list>
           </div>
 
           <div class="ml-5">
-              <availability></availability>
+              <availability :bookable-id="this.$route.params.id"></availability>
           </div>
       </div>
 
