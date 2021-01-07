@@ -12,11 +12,12 @@
               </div>
               <div class="col-md-6 d-flex justify-content-end">
                   {{ review.rating }}
+                  <star-rating class="fa-lg" :rating="review.rating"></star-rating>
               </div>
           </div>
           <div class="row">
               <div class="col-md-12">
-                  {{ review.created_at }}
+                  {{ review.created_at | fromNow }}
               </div>
           </div>
           <div class="row">
@@ -30,6 +31,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
     props: {
         bookableId: String
@@ -47,7 +50,7 @@ export default {
         axios.get(`/api/bookables/${this.bookableId}/reviews`)
         .then(response =>(this.reviews = response.data.data))
         .then(() => (this.loading = false));
-    }
+    },
 }
 </script>
 
