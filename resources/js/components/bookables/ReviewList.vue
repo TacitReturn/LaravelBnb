@@ -11,7 +11,6 @@
                   <p class="font-weight-light">Glenn Rudge</p>
               </div>
               <div class="col-md-6 d-flex justify-content-end">
-                  {{ review.rating }}
                   <star-rating class="fa-lg" :rating="review.rating"></star-rating>
               </div>
           </div>
