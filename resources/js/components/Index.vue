@@ -2,7 +2,7 @@
 <!--Main Navigation-->
 <header>
 
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark black scrolling-navbar">
     <router-link class="navbar-brand" v-bind:to="{ name: 'home' }">
         <strong>Home</strong>
     </router-link>

@@ -2339,6 +2339,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -60203,7 +60215,7 @@ var render = function() {
       "nav",
       {
         staticClass:
-          "navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar"
+          "navbar fixed-top navbar-expand-lg navbar-dark black scrolling-navbar"
       },
       [
         _c(
@@ -60810,15 +60822,35 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("stat-rating", { attrs: { rating: 5 } })
+        _c("star-rating", { staticClass: "fa-3x", attrs: { rating: 5 } })
       ],
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group" })
+    _vm._m(0),
+    _vm._v(" "),
+    _c("button", { staticClass: "btn btn-success btn-block" }, [
+      _vm._v("\n        Submit\n    ")
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "text-muted", attrs: { for: "content" } }, [
+        _vm._v("\n            Describe your experience with\n        ")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { name: "content", id: "content", cols: "30", rows: "5" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
