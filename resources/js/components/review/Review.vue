@@ -4,7 +4,10 @@
             <label for="" class="text-muted">
                 Select a rating 1 is worst, 5 is best
             </label>
-            <star-rating :rating="5" class="fa-3x"></star-rating>
+            <star-rating
+            class="fa-3x"
+            v-model="review.rating">
+            </star-rating>
         </div>
 
         <div class="form-group">
@@ -26,7 +29,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            review: {
+                rating: 5,
+                content: null
+            }
+        }
+    }
+};
 </script>
 
 <style></style>

@@ -2290,6 +2290,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2351,7 +2354,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      review: {
+        rating: 5,
+        content: null
+      }
+    };
+  }
+});
 
 /***/ }),
 
@@ -2380,24 +2395,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    rating: Number
+    value: Number
   },
   computed: {
     halfStar: function halfStar() {
-      var fraction = Math.round((this.rating - Math.floor(this.rating)) * 100);
+      var fraction = Math.round((this.value - Math.floor(this.value)) * 100);
       return fraction > 0 && fraction < 50;
     },
     fullStars: function fullStars() {
       // > 4.5 = 5 stars
       // 4.3 = 4 and a half
-      return Math.round(this.rating);
+      return Math.round(this.value);
     },
     emptyStars: function emptyStars() {
       // If the rating is 1.9, ceil(1.9) = 2, 5 - 2 = 3
       // render 3 empty starts
-      return 5 - Math.ceil(this.rating);
+      return 5 - Math.ceil(this.value);
     }
   }
 });
@@ -60746,7 +60763,7 @@ var render = function() {
                       [
                         _c("star-rating", {
                           staticClass: "fa-lg",
-                          attrs: { rating: review.rating }
+                          attrs: { value: review.rating }
                         })
                       ],
                       1
@@ -60822,7 +60839,16 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("star-rating", { staticClass: "fa-3x", attrs: { rating: 5 } })
+        _c("star-rating", {
+          staticClass: "fa-3x",
+          model: {
+            value: _vm.review.rating,
+            callback: function($$v) {
+              _vm.$set(_vm.review, "rating", $$v)
+            },
+            expression: "review.rating"
+          }
+        })
       ],
       1
     ),
@@ -60877,7 +60903,15 @@ var render = function() {
     { staticClass: "d-flex" },
     [
       _vm._l(_vm.fullStars, function(star) {
-        return _c("i", { key: "full" + star, staticClass: "fas fa-star" })
+        return _c("i", {
+          key: "full" + star,
+          staticClass: "fas fa-star",
+          on: {
+            click: function($event) {
+              return _vm.$emit("input", star)
+            }
+          }
+        })
       }),
       _vm._v(" "),
       _vm.halfStar
@@ -60885,7 +60919,15 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.emptyStars, function(star) {
-        return _c("i", { key: "empty" + star, staticClass: "far fa-star" })
+        return _c("i", {
+          key: "empty" + star,
+          staticClass: "far fa-star",
+          on: {
+            click: function($event) {
+              return _vm.$emit("input", _vm.fullStars + star)
+            }
+          }
+        })
       })
     ],
     2
