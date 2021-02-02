@@ -28,3 +28,6 @@ Route::apiResource('bookables', 'api\BookableController');
 Route::get('bookables/{bookable}/availability', 'api\BookableAvailabilityController')->name('bookables.availability.show');
 
 Route::get('bookables/{bookable}/reviews', 'api\BookableReviewController')->name('bookable.reviews.show');
+
+
+Route::apiResource('reviews', 'api\ReviewController')->only(['show']);
